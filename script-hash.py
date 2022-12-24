@@ -30,12 +30,13 @@ class hash_thread(threading.Thread):
 
     def hash(self):
         file = self.__file
+        print(file)
         with open(orig_folder + file, 'rb') as f:
             while True:
                 data = f.read(BUF_SIZE)
                 if not data:
                     break
-            sha512.update(data)
+                sha512.update(data)
             with open(dest_folder + file.split('.')[0] + '.hash', 'w') as f2:
                 f2.write(sha512.hexdigest())
             print("Hash creado: ", file)
