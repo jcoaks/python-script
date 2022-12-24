@@ -46,7 +46,7 @@ class hash_thread(threading.Thread):
 def search_files(path):
     for scan in scans_folders:
         for root, dirs, files in os.walk(path + '\\' + scan):
-            print(root)
+            #print(root)
             if root != path and not os.path.exists(dest_folder + root.split(orig_folder)[1]):
                 os.makedirs(dest_folder + root.split(orig_folder)[1])
             for name in files:
