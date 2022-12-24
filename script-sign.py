@@ -96,13 +96,8 @@ def verify_data(data, signature):
     return verified
 
 def search_files(path):
-    for root, dirs, files in os.walk(path):
-        find = False
-        for scan in scans_folders:
-            if root.find(scan) >= 0:
-                find = True
-                break
-        if find is True:
+    for scan in scans_folders:
+        for root, dirs, files in os.walk(path + '\\' + scan):
             for name in files:
                 if name.endswith((".hash")):
                     folder = os.listdir(root)
