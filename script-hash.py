@@ -10,7 +10,7 @@ replace_files = False
 orig_folder = sys.argv[1]
 dest_folder = sys.argv[2]
 
-threadLimiter = threading.BoundedSemaphore(number_threads)
+threadLimiter = threading.Semaphore(number_threads)
 
 BUF_SIZE = 65536  # lets read stuff in 64kb chunks!
 
@@ -23,10 +23,12 @@ class hash_thread(threading.Thread):
         threading.Thread.__init__(self)
     def run (self):
         threadLimiter.acquire()
+        print('creado')
         try:
             self.hash()
         finally:
             threadLimiter.release()
+            print('liberado')
 
     def hash(self):
         file = self.__file
@@ -40,7 +42,6 @@ class hash_thread(threading.Thread):
                 f2.write(sha512.hexdigest())
             print("Hash creado: ", file)
             print("Sha512: {0}".format(sha512.hexdigest()))
-
 
 def search_files(path):
     for root, dirs, files in os.walk(path):
