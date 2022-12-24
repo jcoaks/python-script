@@ -14,9 +14,11 @@ from Crypto.Util.number import bytes_to_long, long_to_bytes
 
 number_threads = 12
 replace_files = False
+scans_folders = ['sc01', 'sc02', 'sc03', 'sc04', 'sc05', 'sc06', 'sc07', 'sc08', 'sc09', 'sc10', 'sc11', 'sc12', 'sc13', 'sc14', 'sc15', 'sc16', 'sc17']
+#scans_folders = ['sc18', 'sc19', 'sc20', 'sc21', 'sc22', 'sc23', 'sc24', 'sc25', 'sc26', 'sc27', 'sc28', 'sc29', 'sc30', 'sc31', 'sc32', 'sc33', 'sc34']
 dest_folder = sys.argv[1]
 key_file = sys.argv[2]
-threadLimiter = threading.Semaphore(number_threads)
+threadLimiter = threading.BoundedSemaphore(number_threads)
 
 # cer_file = "KEYS/clavePribHomologacion.cer"
 # key_file = "KEYS/clavePribHomologacion.key"
@@ -43,7 +45,7 @@ class sign_thread(threading.Thread):
 
         with open(file) as f:
             data = f.readlines()
-        print(data[0])
+        #print(data[0])
 
         data = data[0]
         
@@ -94,13 +96,17 @@ def verify_data(data, signature):
     return verified
 
 def search_files(path):
-    print(path)
     for root, dirs, files in os.walk(path):
-        for name in files:
-            if name.endswith((".hash")):
-                print(name)
-                folder = os.listdir(root)
-                if name.split('.')[0] + '.sign' not in folder or replace_files:
-                    sign_thread(root + '\\' + name).start()
+        find = False
+        for scan in scans_folders:
+            if root.find(scan) >= 0:
+                find = True
+                break
+        if find is True:
+            for name in files:
+                if name.endswith((".hash")):
+                    folder = os.listdir(root)
+                    if name.split('.')[0] + '.sign' not in folder or replace_files:
+                        sign_thread(root + '\\' + name).start()
 
 search_files(dest_folder)
