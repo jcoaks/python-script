@@ -16,7 +16,7 @@ number_threads = 12
 replace_files = False
 dest_folder = sys.argv[1]
 key_file = sys.argv[2]
-threadLimiter = threading.BoundedSemaphore(number_threads)
+threadLimiter = threading.Semaphore(number_threads)
 
 # cer_file = "KEYS/clavePribHomologacion.cer"
 # key_file = "KEYS/clavePribHomologacion.key"
