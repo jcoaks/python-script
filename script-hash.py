@@ -44,13 +44,9 @@ class hash_thread(threading.Thread):
             print("Sha512: {0}".format(sha512.hexdigest()))
 
 def search_files(path):
-    for root, dirs, files in os.walk(path):
-        find = False
-        for scan in scans_folders:
-            if root.find(scan) >= 0:
-                find = True
-                break
-        if find is True:
+    for scan in scans_folders:
+        for root, dirs, files in os.walk(path + '\\' + scan):
+            print(root)
             if root != path and not os.path.exists(dest_folder + root.split(orig_folder)[1]):
                 os.makedirs(dest_folder + root.split(orig_folder)[1])
             for name in files:
