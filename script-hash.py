@@ -30,7 +30,6 @@ class hash_thread(threading.Thread):
 
     def hash(self):
         file = self.__file
-        print(file)
         with open(orig_folder + file, 'rb') as f:
             while True:
                 data = f.read(BUF_SIZE)
