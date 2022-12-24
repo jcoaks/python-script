@@ -62,8 +62,8 @@ class sign_thread(threading.Thread):
         print(signature_str)
         print("Archivo firmado: ", file)
 
-        result = verify_data(data, signature_str)
-        print("Archivo verificado: ", result, file)
+        ##result = verify_data(data, signature_str)
+        ##print("Archivo verificado: ", result, file)
 
 def maybe_pad(s):
     return (s + '=' * (4 - len(s) % 4))
