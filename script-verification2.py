@@ -10,7 +10,7 @@ from Crypto.Util.asn1 import DerSequence
 from binascii import a2b_base64
 from base64 import urlsafe_b64decode
 
-hash_file = sys.argv[1]
+tic_file = sys.argv[1]
 signature_file = sys.argv[2]
 
 cer_file = "KEYS/clavePribHomologacion.cer"
@@ -18,15 +18,20 @@ cer_file = "KEYS/clavePribHomologacion.cer"
 # csr_file = "KEYS/clavePribHomologacion.csr"
 # pfx_file = "KEYS/clavePribHomologacion.pfx"
 
-def get_hash_from_file(hash_file):
-    with open(hash_file) as f:
-        data = f.readlines()
-    hash = data[0]
-    print("Hash: " + hash)
-    return hash
+def open_tic_file(file):
+    BUF_SIZE = 65536
+    sha512 = hashlib.sha512()
+    with open(file, 'rb') as f:
+        while True:
+            data = f.read(BUF_SIZE)
+            if not data:
+                break
+            sha512.update(data)
+        print("Sha512: {0}".format(sha512.hexdigest()))
+        return sha512.hexdigest()
 
-def get_signature_from_file(sign_file):
-    with open(sign_file) as f:
+def get_signature_file(file):
+    with open(file) as f:
         data = f.readlines()
     signature = data[0]
     print("Signature: " + signature)
@@ -55,8 +60,8 @@ def get_publickey_from_cert(filename):
     publicKey = RSA.importKey(subjectPublicKeyInfo)
     return publicKey.publickey()
 
-hash = get_hash_from_file(hash_file)
-signature = get_signature_from_file(signature_file)
+hash = open_tic_file(tic_file)
+signature = get_signature_file(signature_file)
 verified = verify_data(hash, signature)
 print("Verificación %s con PKCS1_v1_5"
        % ("exitosa" if verified else "No exitosa"))
