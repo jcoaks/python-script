@@ -17,7 +17,6 @@ threadLimiter = threading.BoundedSemaphore(number_threads)
 BUF_SIZE = 65536  # lets read stuff in 64kb chunks!
 
 #sha256 = hashlib.sha256()
-sha512 = hashlib.sha512()
 
 class hash_thread(threading.Thread):
     def __init__(self, file):
@@ -31,6 +30,7 @@ class hash_thread(threading.Thread):
             threadLimiter.release()
 
     def hash(self):
+        sha512 = hashlib.sha512()
         file = self.__file
         with open(orig_folder + file, 'rb') as f:
             while True:
