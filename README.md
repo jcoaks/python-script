@@ -27,3 +27,11 @@
 - signature file
 
 `python script-verification.py "C:\\hash_file.hash" "C:\\sign_file.sign"`
+
+## Use verification script 2
+
+### Parameters
+- tic file
+- signature file
+
+`python script-verification2.py "C:\\hash_file.tic" "C:\\sign_file.sign"`

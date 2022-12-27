@@ -12,16 +12,16 @@ from binascii import a2b_base64
 from base64 import urlsafe_b64decode, urlsafe_b64encode
 from Crypto.Util.number import bytes_to_long, long_to_bytes
 
-number_threads = 12
+number_threads = 64
 replace_files = False
 scans_folders = ['sc01', 'sc02', 'sc03', 'sc04', 'sc05', 'sc06', 'sc07', 'sc08', 'sc09', 'sc10', 'sc11', 'sc12', 'sc13', 'sc14', 'sc15', 'sc16', 'sc17']
 #scans_folders = ['sc18', 'sc19', 'sc20', 'sc21', 'sc22', 'sc23', 'sc24', 'sc25', 'sc26', 'sc27', 'sc28', 'sc29', 'sc30', 'sc31', 'sc32', 'sc33', 'sc34']
 dest_folder = sys.argv[1]
-key_file = sys.argv[2]
+#key_file = sys.argv[2]
 threadLimiter = threading.BoundedSemaphore(number_threads)
 
 # cer_file = "KEYS/clavePribHomologacion.cer"
-# key_file = "KEYS/clavePribHomologacion.key"
+key_file = "KEYS/clavePribHomologacion.key"
 # csr_file = "KEYS/clavePribHomologacion.csr"
 # pfx_file = "KEYS/clavePribHomologacion.pfx"
 
