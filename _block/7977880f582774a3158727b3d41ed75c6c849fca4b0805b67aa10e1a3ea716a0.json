@@ -1,0 +1,11 @@
+{
+    "prevHash": "4797d6a1d379caf319afa1d1d07f706ac0eb0b65959d96916401e4e63a466440",
+    "height": 312,
+    "version": 2,
+    "data": "// IMPORT CENSO__SC\n\n[\n    {\n        \"filename\": \"80010006_C220026210_1_60014009\",\n        \"scanner\": \"sc01\",\n        \"pallet\": \"80010006\",\n        \"box\": \"C220026210\",\n        \"hash\": \"f97570cb812f747095b7b6042f8f4b7ff66c8ad4112643a3bf9b3982c3e37697a6d5221aae5e8b48f80dcb212bf7f958da2db4d0db4e04fac353a458a8b0a84d\",\n        \"signature\": \"n1AoGP2U8tSyAO28KEgQsTjw8zD23x-zwUI-s2HjUu4RwSfCAzV75t4WnJay7fGEBkYxLK4KbxIx6TfvsBuOIndjWSaoJRXwxjBs6_IPGmJVFRHOmmXE3QIalvaCm404i7iQE-xAQZEN53P5xXq10OT_hyo_7CzWio3lLoA8EektHX-OgLKFWYSHqgC589DLoLYwia3Nsh4Vv8tUrTh8yM8Xm5oSKCCXG7g_vmFz72BAK_-x9vtalch80Qzm16Y5IerMB3Vv64Ta9MMlZ1iFMRGFQwywC4Ig8EiPWQ36Q6tlizXvTIsz-F66BgTYRCYFe_ygyBQG51CV-i7qn4D-9w==\"\n    }\n]",
+    "timestamp": 1690479586710,
+    "scope": "CENSO__SC",
+    "by": "CENSO",
+    "signature": "7fccbdeb78385c1a9a92b308734e5b9ee48c8cc7bcc080cc84c557c802492ad532da3eaa218e3319067c07163997bbda7eb12d4e3b924a1011ed06c09fc34d90c862ad0cadd3abc86478c780be6968867dbfd4a5b88430538bc8817efa0a89807879f7447c5a65b88002a40317cbcc2ecc81d3213a705372e7023c765f7ea26b65ee18c20d990d44432e6e37a3d44f3b08cb9ba56b4b2ffb7c98df6c3a9b51d5546fa9741cc490a99c44a2ac6ed2ec33a18168897fc28d1765d5af7c90a510dfe1be375ec0537f2167bff2b6a69904da0d53ea54596f745794641cd1d1a8b4ad678ec5b7c43356473991ce54f56ae657d198227de0e7dc8e49c021938fc9cb9f",
+    "hash": "7977880f582774a3158727b3d41ed75c6c849fca4b0805b67aa10e1a3ea716a0"
+}
